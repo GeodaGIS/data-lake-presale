@@ -1,0 +1,30 @@
+.tiles-container {
+    /* background: #c8c8c8; */
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(2, 50%);
+    /* width: fit-content;
+    height: fit-content; */
+    padding: 4px;
+    margin: 5px;
+}
+
+.tiles-container div {
+    /* background: whitesmoke; */
+    /* width: 130px;
+    height: 130px; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    box-shadow: inset 0px 0px 6px 2px #c1c1c1b8;
+}
+
+.tiles-container div h1 {
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 15px auto;
+    font-size: 30px;
+}
