@@ -42,7 +42,8 @@ export const StreamsChart = () => {
                 x: {
                     ticks: {
                         font: {
-                            size: '20px', weight: 'bold'
+                            size: '20px',
+                            weight: 'bold'
                         }
                     }
                 },
