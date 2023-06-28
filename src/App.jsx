@@ -18,8 +18,7 @@ function App() {
   }, []);
 
   return (
-    // <BrowserRouter basename='bank-international-presale'>
-    <BrowserRouter>
+    <BrowserRouter basename='data-lake-presale'>
       <main className='app-main-container'>
         <AppHeader />
         <Routes>
