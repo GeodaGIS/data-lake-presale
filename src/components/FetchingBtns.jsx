@@ -8,30 +8,40 @@ import { ProgressBar } from 'primereact/progressbar';
 
 export const FetchingBtns = () => {
     const dispatch = useDispatch();
+    // isWorking means the general process (all the iterations):
     const [isWorking, setIsWorking] = useState(false);
+    // isFetching means the process of each iteration:
     const { isFetching, setIsFetching } = useContext(HomeContext);
     let intervalId = useRef(null);
     const [progressVal, setProgressVal] = useState(100);
+    const second = 1000;
 
     const startStreaming = () => {
         setIsWorking(true);
+        // first iteration:
         run();
-        intervalId.current = setInterval(run, 10000);
+        // every 10 seconds start another iteration:
+        // (for the user it seems like every iteration is 5 seconds but technically is 10 seconds)
+        intervalId.current = setInterval(run, second * 10);
     }
 
     const run = () => {
+        // ProgressVal starts at 0 and ends at 100 in every iteration, with jumps of 20 every second. 
         setProgressVal(0);
         let progInterval = null;
         setIsFetching(true);
         progInterval = setInterval(() => {
             setProgressVal(prev => prev + 20);
-        }, 1000);
+        }, second);
+        // after 5 seconds we need to end the iteration:
         setTimeout(() => {
+            // after each iteration we update the data:
             dispatch(updateStreams());
             setIsFetching(false);
             clearInterval(progInterval);
+            // max value is 100:
             setProgressVal(100);
-        }, 5000);
+        }, second * 5);
     }
 
     const stopStreaming = () => {

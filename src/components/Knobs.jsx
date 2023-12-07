@@ -43,6 +43,7 @@ export const Knobs = () => {
                             value={3500}
                             valueColor='#397AA8'
                             rangeColor="rgba(162, 163, 166, 0.6)"
+                            // every stream has max of 1000 and there are 4 streams in general
                             min={0} max={maxSize * streams.length}
                             size={280}
                         />
